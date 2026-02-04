@@ -1,0 +1,249 @@
+:root {
+  color-scheme: dark;
+  font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+  --bg: #0b0f1f;
+  --panel: #111a33;
+  --panel-soft: #16213f;
+  --accent: #9ad1ff;
+  --accent-strong: #3f7bfa;
+  --text: #f5f7ff;
+  --muted: #b9c6e7;
+  --shadow: rgba(10, 16, 33, 0.45);
+  --exposure: 1;
+  --noise: 0.1;
+  --blur: 2px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(circle at top, #192450, #060912 60%);
+  color: var(--text);
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 3rem clamp(1.5rem, 4vw, 4rem) 4rem;
+}
+
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-bottom: 0.5rem;
+}
+
+h1 {
+  margin: 0 0 0.75rem;
+  font-size: clamp(2.5rem, 5vw, 3.8rem);
+}
+
+.subtitle {
+  max-width: 32rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.summary {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  background: var(--panel);
+  padding: 1.5rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 18px 40px var(--shadow);
+}
+
+.label {
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  letter-spacing: 0.15rem;
+  color: var(--muted);
+}
+
+.value {
+  font-size: 1.1rem;
+  margin: 0.35rem 0 0;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.control-card {
+  background: var(--panel);
+  padding: 1.5rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 18px 40px var(--shadow);
+}
+
+.control-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.control-value {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.control-desc {
+  color: var(--muted);
+  line-height: 1.5;
+  margin: 0.75rem 0 1.25rem;
+}
+
+input[type="range"] {
+  width: 100%;
+  accent-color: var(--accent-strong);
+}
+
+.ticks {
+  display: flex;
+  justify-content: space-between;
+  color: var(--muted);
+  font-size: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.display {
+  background: var(--panel);
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+  box-shadow: 0 18px 40px var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.display-header p {
+  color: var(--muted);
+  margin: 0.5rem 0 0;
+}
+
+.display-window {
+  border-radius: 1.25rem;
+  overflow: hidden;
+  position: relative;
+  min-height: 360px;
+  background: linear-gradient(135deg, #03060f, #0b1126 60%);
+}
+
+.scene {
+  position: relative;
+  height: 100%;
+  min-height: 360px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at 30% 20%, rgba(255, 236, 181, 0.5), transparent 55%),
+    linear-gradient(120deg, rgba(20, 48, 94, 0.6), rgba(15, 16, 28, 0.95));
+  filter: brightness(var(--exposure));
+}
+
+.light-source {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 244, 214, 0.9), rgba(255, 199, 94, 0.05));
+  box-shadow: 0 0 60px rgba(255, 221, 160, 0.6);
+  position: absolute;
+  top: 15%;
+  left: 20%;
+  opacity: calc(0.6 + var(--exposure) * 0.4);
+}
+
+.subject {
+  width: 200px;
+  height: 280px;
+  border-radius: 1.5rem;
+  background: linear-gradient(180deg, rgba(120, 156, 240, 0.9), rgba(30, 50, 96, 0.9));
+  box-shadow: 0 30px 60px rgba(12, 18, 37, 0.6);
+  filter: blur(var(--blur));
+}
+
+.bokeh {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  filter: blur(calc(var(--blur) * 1.4));
+  opacity: calc(0.2 + var(--exposure) * 0.2);
+}
+
+.bokeh.one {
+  width: 110px;
+  height: 110px;
+  bottom: 20%;
+  right: 25%;
+}
+
+.bokeh.two {
+  width: 70px;
+  height: 70px;
+  top: 18%;
+  right: 15%;
+}
+
+.bokeh.three {
+  width: 90px;
+  height: 90px;
+  bottom: 10%;
+  left: 12%;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(8, 11, 26, 0.25);
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 1.5rem;
+}
+
+.overlay-info {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(80px, 1fr));
+  gap: 1.5rem;
+  background: rgba(8, 12, 25, 0.65);
+  padding: 1rem 1.25rem;
+  border-radius: 1rem;
+  box-shadow: 0 18px 45px rgba(3, 6, 16, 0.5);
+}
+
+@media (max-width: 720px) {
+  .overlay-info {
+    grid-template-columns: 1fr;
+  }
+
+  .subject {
+    width: 150px;
+    height: 220px;
+  }
+}

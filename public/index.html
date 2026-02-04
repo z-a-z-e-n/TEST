@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exposure Lab | Learn ISO, Aperture, Shutter Speed</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">Camera Enthusiast Lab</p>
+        <h1>Exposure Lab</h1>
+        <p class="subtitle">
+          Learn how ISO, aperture (f-stops), and shutter speed work together.
+          Move the sliders to see live exposure changes—no camera required.
+        </p>
+      </div>
+      <div class="summary">
+        <div>
+          <p class="label">Exposure Feel</p>
+          <p id="exposure-feel" class="value">Balanced</p>
+        </div>
+        <div>
+          <p class="label">Depth of Field</p>
+          <p id="dof-feel" class="value">Medium</p>
+        </div>
+        <div>
+          <p class="label">Motion</p>
+          <p id="motion-feel" class="value">Frozen</p>
+        </div>
+      </div>
+    </header>
+
+    <main class="content">
+      <section class="controls">
+        <div class="control-card">
+          <div class="control-header">
+            <h2>ISO</h2>
+            <span id="iso-value" class="control-value">200</span>
+          </div>
+          <p class="control-desc">
+            ISO controls sensor sensitivity. Higher ISO brightens the image but adds noise.
+          </p>
+          <input id="iso" type="range" min="100" max="3200" step="100" value="200" />
+          <div class="ticks">
+            <span>100</span>
+            <span>800</span>
+            <span>1600</span>
+            <span>3200</span>
+          </div>
+        </div>
+
+        <div class="control-card">
+          <div class="control-header">
+            <h2>Aperture (f-stop)</h2>
+            <span id="aperture-value" class="control-value">f/4.0</span>
+          </div>
+          <p class="control-desc">
+            Aperture controls the lens opening. Smaller f-numbers mean a wider opening and a brighter image.
+          </p>
+          <input id="aperture" type="range" min="1.4" max="16" step="0.1" value="4" />
+          <div class="ticks">
+            <span>f/1.4</span>
+            <span>f/4</span>
+            <span>f/8</span>
+            <span>f/16</span>
+          </div>
+        </div>
+
+        <div class="control-card">
+          <div class="control-header">
+            <h2>Shutter Speed</h2>
+            <span id="shutter-value" class="control-value">1/250</span>
+          </div>
+          <p class="control-desc">
+            Shutter speed controls how long light hits the sensor. Slower speeds brighten and blur motion.
+          </p>
+          <input id="shutter" type="range" min="1" max="30" step="1" value="8" />
+          <div class="ticks">
+            <span>1/4000</span>
+            <span>1/500</span>
+            <span>1/60</span>
+            <span>1/2</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="display">
+        <div class="display-header">
+          <h2>Live Exposure Preview</h2>
+          <p>Watch how the simulated scene responds to your settings.</p>
+        </div>
+        <div class="display-window">
+          <div class="scene">
+            <div class="light-source"></div>
+            <div class="subject"></div>
+            <div class="bokeh one"></div>
+            <div class="bokeh two"></div>
+            <div class="bokeh three"></div>
+            <div class="overlay">
+              <div class="overlay-info">
+                <div>
+                  <p class="label">ISO</p>
+                  <p id="overlay-iso" class="value">200</p>
+                </div>
+                <div>
+                  <p class="label">Aperture</p>
+                  <p id="overlay-aperture" class="value">f/4.0</p>
+                </div>
+                <div>
+                  <p class="label">Shutter</p>
+                  <p id="overlay-shutter" class="value">1/250</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
